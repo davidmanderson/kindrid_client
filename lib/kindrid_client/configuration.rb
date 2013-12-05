@@ -6,10 +6,27 @@ module KindridClient
   module Configuration
 
     # An array of valid keys in the options hash when configuring
-    VALID_OPTIONS_KEYS = [:user_agent].freeze
+    VALID_OPTIONS_KEYS = [:adapter, :endpoint, :limit, :user_agent, :request_options].freeze
+
+    # The adapter that will be used to connect if none is set
+    #
+    # @note The default faraday adapter is Net::HTTP.
+    DEFAULT_ADAPTER = Faraday.default_adapter
+
+    # The endpoint that will be used to connect if none is set
+    DEFAULT_ENDPOINT = 'https://kindrid.com/api/v1'.freeze
 
     # The user agent that will be sent to the API endpoint if none is set
     DEFAULT_USER_AGENT = "Kindrid Client Gem #{KindridClient::VERSION}".freeze
+    
+    # The default number of results to return from the API
+    DEFAULT_LIMIT = nil
+    
+    # The default request options for Faraday
+    DEFAULT_REQUEST_OPTIONS = {
+      :timeout => 5,
+      :open_timeout => 5
+    }
 
     # @private
     attr_accessor *VALID_OPTIONS_KEYS
@@ -33,7 +50,11 @@ module KindridClient
     
     # Reset all configuration options to defaults
     def reset
+      self.adapter          = DEFAULT_ADAPTER
+      self.endpoint         = DEFAULT_ENDPOINT
       self.user_agent       = DEFAULT_USER_AGENT
+      self.request_options  = DEFAULT_REQUEST_OPTIONS
+      self.limit            = DEFAULT_LIMIT
     end
 
   end
