@@ -40,6 +40,10 @@ Donors
 
     KindridClient.donor(donor_id)
   
+Also, to consume requests from Kindrid and validate the HMAC with your secret key, use the following:
+
+    KindridClient.consume(request)
+
 
 For more information about the Kindrid API, you can view their api documentation here: http://kindrid.com/dashboard/settings/api/docs
 
