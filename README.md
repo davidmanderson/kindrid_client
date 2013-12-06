@@ -1,6 +1,6 @@
 # KindridClient
 
-TODO: Write a gem description
+A Ruby wrapper around the Kindrid API that lets you lookup donations and donors.
 
 ## Installation
 
@@ -18,7 +18,30 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+To set up the gem, add keys:
+
+    KindridClient.key = "key"
+    KindridClient.secret = "secret"
+
+
+Now you may run the following commands:
+
+Donations
+
+
+    KindridClient.donations             # optional limit and offset params (ex: {limit: 15, offset: 2})
+    KindridClient.donations(donor_id)   # optional limit and offset params (ex: {limit: 15, offset: 2})
+
+KindridClient.donation(donation_id)
+
+Donors
+
+    KindridClient.donors                # optional limit and offset params (ex: {limit: 15, offset: 2})
+
+    KindridClient.donor(donor_id)
+  
+
+For more information about the Kindrid API, you can view their api documentation here: http://kindrid.com/dashboard/settings/api/docs
 
 ## Contributing
 
