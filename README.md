@@ -32,7 +32,7 @@ Donations
     KindridClient.donations             # optional limit and offset params (ex: {limit: 15, offset: 2})
     KindridClient.donations(donor_id)   # optional limit and offset params (ex: {limit: 15, offset: 2})
 
-KindridClient.donation(donation_id)
+    KindridClient.donation(donation_id)
 
 Donors
 
