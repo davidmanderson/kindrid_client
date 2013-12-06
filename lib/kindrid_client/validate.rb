@@ -4,7 +4,6 @@ module KindridClient
     private
     
     def validate(request)
-      binding.pry
       message = "#{request.url}#{request.body.read}"
       digest = OpenSSL::Digest::Digest.new('sha1')
       hmac = OpenSSL::HMAC.hexdigest(digest, KindridClient.secret, message)
