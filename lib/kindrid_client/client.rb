@@ -17,9 +17,11 @@ module KindridClient
     end
     
     def consume(request, options = {})
-      if !validate(request)
-        puts "Incorrect signature"
-        return
+      unless options[:validate] == false
+        if !validate(request)
+          puts "Incorrect signature"
+          return
+        end
       end
       
       result = Hashie::Mash.new(request.params)
