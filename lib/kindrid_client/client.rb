@@ -25,7 +25,7 @@ module KindridClient
       end
       
       result = Hashie::Mash.new(request.params)
-      result[result.keys.first] if request.params.blank?
+      result[result.keys.first] unless result.blank?
     end
     
     Dir[File.expand_path('../client/*.rb', __FILE__)].each{|f| require f}
