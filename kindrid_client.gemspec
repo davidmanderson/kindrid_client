@@ -13,7 +13,7 @@ Gem::Specification.new do |gem|
   gem.homepage      = ""
   
   gem.add_runtime_dependency('rash', '~> 0.3')
-  gem.add_runtime_dependency('faraday_middleware', '~> 0.7')
+  gem.add_runtime_dependency("faraday")
   gem.add_runtime_dependency('multi_json', '~> 1.0')
 
   gem.files         = `git ls-files`.split($/)

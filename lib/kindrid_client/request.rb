@@ -12,7 +12,7 @@ module KindridClient
         req.url request[:url], request[:params]
         req.options = request_options
       end
-      response.body
+      Hashie::Mash.new(response.body)
     end
     
     def construct_request(resource_path, params={})
@@ -30,8 +30,7 @@ module KindridClient
 
       Faraday.new(options) do |builder|
         builder.basic_auth(KindridClient.key, KindridClient.secret)
-        builder.use Faraday::Response::Rashify
-        builder.use Faraday::Response::ParseJson
+        builder.request  :json
         builder.adapter(adapter)
       end
     end

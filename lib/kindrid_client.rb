@@ -1,4 +1,4 @@
-require 'faraday_middleware'
+require 'faraday'
 require "kindrid_client/version"
 require 'kindrid_client/client'
 require 'kindrid_client/configuration'
