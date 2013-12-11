@@ -30,21 +30,17 @@ Donations
 
     KindridClient.donations             # optional limit and offset params (ex: {limit: 15, offset: 2})
     KindridClient.donations(donor_id)   # optional limit and offset params (ex: {limit: 15, offset: 2})
-
     KindridClient.donation(donation_id)
 
 Donors
 
     KindridClient.donors                # optional limit and offset params (ex: {limit: 15, offset: 2})
-
     KindridClient.donor(donor_id)
 
 Tags
 
     KindridClient.tags(donor_id)
-    
     KindridClient.tags(donor_id).put({tag_key: "value"})    # add tags
-    
     KindridClient.tags(donor_id).delete("tag_key")          # remove tag
 
   
