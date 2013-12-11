@@ -1,15 +1,44 @@
 module KindridClient
   module Request
     
-    # @private
-    private
-
     # Perform an HTTP GET request
-    def request(resource_path, params = {})
+    def get(resource_path, params = {})
       request = construct_request(resource_path, params)
 
       response = connection.get do |req|
         req.url request[:url], request[:params]
+        req.options = request_options
+      end
+      Hashie::Mash.new(response.body)
+    end
+    
+    def post(resource_path, data)
+      request = construct_request(resource_path)
+
+      response = connection.post do |req|
+        req.url request[:url]
+        req.body = data.to_json
+        req.options = request_options
+      end
+      Hashie::Mash.new(response.body)
+    end
+    
+    def put(resource_path, data)
+      request = construct_request(resource_path)
+
+      response = connection.put do |req|
+        req.url request[:url]
+        req.body = data.to_json
+        req.options = request_options
+      end
+      Hashie::Mash.new(response.body)
+    end
+    
+    def delete(resource_path)
+      request = construct_request(resource_path)
+
+      response = connection.delete do |req|
+        req.url request[:url]
         req.options = request_options
       end
       Hashie::Mash.new(response.body)

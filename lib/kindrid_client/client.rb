@@ -36,5 +36,6 @@ module KindridClient
     include Request
     include Donation
     include Donor
+    include Tag
   end
 end

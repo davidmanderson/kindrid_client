@@ -8,7 +8,7 @@ module KindridClient
       # clear empty key/value pairs
       params.reject! { |key, value| value.nil? }
 
-      request("donors", params).results
+      get("donors", params).results
     end
     
     def donor(id, options={})
@@ -18,7 +18,7 @@ module KindridClient
       # clear empty key/value pairs
       params.reject! { |key, value| value.nil? }
 
-      request("donors/#{id}", params).results.first
+      get("donors/#{id}", params).results.first
     end
     
   end
