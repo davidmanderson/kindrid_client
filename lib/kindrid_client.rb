@@ -1,4 +1,5 @@
 require 'faraday'
+require 'hashie'
 require "kindrid_client/version"
 require 'kindrid_client/client'
 require 'kindrid_client/configuration'
